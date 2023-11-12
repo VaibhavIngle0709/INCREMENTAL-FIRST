@@ -14,5 +14,22 @@ namespace dotnetapp.Managers
         // UpdateTeam
         // DeleteTeam
         // ListTeams
+
+        public void CreateTeam()
+        {
+
+        }
+        public void EditTeam(int TeamId)
+        {
+
+        }
+        public void DeleteTeam(int TeamId)
+        {
+
+        }
+        public void ListTeam()
+        {
+            
+        }
     }
 }

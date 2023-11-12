@@ -10,8 +10,8 @@ namespace dotnetapp
         static void Main(string[] args)
         {
             // Create instances of managers    
-            Console.WriteLine("Welcome To Ipl Bidding Application");
-            Console.WriteLine("1.Add Player");        
+            Console.WriteLine("Welcome To IPL Bidding Application");
+            Console.WriteLine("1.Add Team");        
         }
     }
 }
