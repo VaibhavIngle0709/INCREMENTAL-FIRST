@@ -22,8 +22,25 @@ namespace dotnetapp.Managers
             {
                 SqlConnection con=new SqlConnection(Connectionstring);
                 con.Open();
-                Console.
+                Console.Clear();
                 Console.WriteLine("CREATING NEW TEAM");
+                Console.Write("ENTER [TEAM ID]   : ");
+                int teamid=int.Parse(Console.ReadLine());
+                Console.Write("ENTER [TEAM NAME] : ");
+                string teamname=Console.ReadLine();
+
+                string cmdtext="Insert into Teams values(@TeamId,@TeamName)";
+                SqlCommand sqlcommand=new SqlCommand(cmdtext,con);
+
+                sqlcommand.Parameters.AddWithValue("@TeamId",teamid);
+                sqlcommand.Parameters.AddWithValue("@TeamName",teamname);
+
+                sqlcommand.Excecu
+
+
+
+                
+
             }
             catch(Exception ex)
             {
