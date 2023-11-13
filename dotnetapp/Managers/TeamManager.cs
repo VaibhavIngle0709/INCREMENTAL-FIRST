@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using dotnetapp.Models;
 
+using System.Data.SqlClient;
+
+
 namespace dotnetapp.Managers
 {
     public class TeamManager
@@ -35,7 +38,7 @@ namespace dotnetapp.Managers
                 sqlcommand.Parameters.AddWithValue("@TeamId",teamid);
                 sqlcommand.Parameters.AddWithValue("@TeamName",teamname);
 
-                sqlcommand.ExcecuteNonQuery();
+                sqlcommand.ExecuteNonQuery();
 
                 con.Close();
                 
@@ -65,12 +68,16 @@ namespace dotnetapp.Managers
 
             SqlCommand cmd=new SqlCommand(cmdtext,con);
             
-            SqlDataReader dataReader=cmd.ExcecuteReader();
-
+            SqlDataReader dataReader=cmd.ExecuteReader();
+                Console.WriteLine("");
+                Console.WriteLine("- - - - - - - - - - - - - ");
+                Console.WriteLine("TEAM ID         TEAM NAME");
             while(dataReader.Read())
             {
-                Console.WriteLine(dataReader);
+                Console.WriteLine($"{dataReader["TeamId"]}               {dataReader["TeamName"]}");
             }
+            Console.WriteLine("");
+                Console.WriteLine("- - - - - - - - - - - - - ");
 
             con.Close();
 
