@@ -35,15 +35,15 @@ namespace dotnetapp.Managers
                 sqlcommand.Parameters.AddWithValue("@TeamId",teamid);
                 sqlcommand.Parameters.AddWithValue("@TeamName",teamname);
 
-                sqlcommand.Excecu
+                sqlcommand.ExcecuteNonQuery();
 
-
-
+                con.Close();
                 
 
             }
             catch(Exception ex)
             {
+                Console.WriteLine("ERROR WHILE CREATING TEAM");
                 Console.WriteLine(ex.Message);
             }
 
@@ -58,6 +58,22 @@ namespace dotnetapp.Managers
         }
         public void ListTeam()
         {
+            SqlConnection con=new SqlConnection(Connectionstring);
+            con.Open();
+
+            string cmdtext="Select * from Teams";
+
+            SqlCommand cmd=new SqlCommand(cmdtext,con);
+            
+            SqlDataReader dataReader=cmd.ExcecuteReader();
+
+            while(dataReader.Read())
+            {
+                Console.WriteLine(dataReader);
+            }
+
+            con.Close();
+
             
         }
     }
