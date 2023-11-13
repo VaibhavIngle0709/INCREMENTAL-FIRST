@@ -17,6 +17,9 @@ namespace dotnetapp
             int choice =int.Parse(Console.ReadLine());   
             if(choice==1)
             {
+                char check='d';
+                while()
+                {
                 Console.WriteLine("TEAM MANAGEMENT");
                 Console.WriteLine("1.CREATE TEAM");
                 Console.WriteLine("2.EDIT TEAM");
@@ -32,8 +35,26 @@ namespace dotnetapp
                     break;
 
                     case 2:
-                    teamManager.
+                    //need to take input for teamId
+                    teamManager.EditTeam();
+                    break;
                     
+                    case 3:
+                    //need to take input for teamID
+                    teamManager.DeleteTeam();
+                    break;
+
+                    case 4:
+                    teamManager.ListTeam();
+                    break;
+
+                    default:
+                    Console.Write("PLEASE SELECT A VALID CHOICE AND TRY AGAIN. PRESS (Y/N) : ");
+                    //take input for Y/N here
+                    break;
+
+                    
+                }
                 }
 
 
