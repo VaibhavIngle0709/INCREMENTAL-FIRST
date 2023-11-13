@@ -57,7 +57,7 @@ namespace dotnetapp.Managers
         }
         public void DeleteTeam(int TeamId)
         {
-
+            
         }
         public void ListTeam()
         {
@@ -76,8 +76,9 @@ namespace dotnetapp.Managers
             {
                 Console.WriteLine($"{dataReader["TeamId"]}               {dataReader["TeamName"]}");
             }
-            Console.WriteLine("");
+         
                 Console.WriteLine("- - - - - - - - - - - - - ");
+                   Console.WriteLine("");
 
             con.Close();
 
