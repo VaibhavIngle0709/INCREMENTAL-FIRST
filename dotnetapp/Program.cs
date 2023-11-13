@@ -9,7 +9,11 @@ namespace dotnetapp
     {
         static void Main(string[] args)
         {
-            // Create instances of managers    
+            // Create instances of managers 
+            TeamManager teamManager=new TeamManager();
+            PlayerManager playerManager=new PlayerManager();
+
+            Console. Clear();  
             Console.WriteLine("WELCOME TO IPL BIDDING");
             Console.WriteLine("1.TEAM MANAGEMENT.");
             Console.WriteLine("2.PLAYER MANAGEMENT."); 
@@ -20,14 +24,15 @@ namespace dotnetapp
                 char check='y';
                 while(check=='y')
                 {
+                Console. Clear();
                 Console.WriteLine("TEAM MANAGEMENT");
                 Console.WriteLine("1.CREATE TEAM");
                 Console.WriteLine("2.EDIT TEAM");
                 Console.WriteLine("3.DELETE TEAM");
                 Console.WriteLine("4.LIST TEAM");
-                Console.Write("ENTER YOU CHOICE");
+                Console.Write("ENTER YOUR CHOICE : ");
                 int teamchoice=int.Parse(Console.ReadLine());
-                TeamManager teamManager=new TeamManager();
+            
                 switch(teamchoice)
                 {
                     case 1:
@@ -75,6 +80,7 @@ namespace dotnetapp
             {
                 Console.WriteLine("Invalid Choice");
             }
+            Console.Clear();
         }
     }
 }
