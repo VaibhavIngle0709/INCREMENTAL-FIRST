@@ -97,6 +97,33 @@ namespace dotnetapp.Managers
         }
         public void DeleteTeam(int TeamId)
         {
+            SqlConnection con = new SqlConnection(Connectionstring);
+            try
+            {
+                Console.Clear();
+                Console.WriteLine("[ NOTE / WARNING ]: ALL THE PLAYERS ASSOCIATED WITH THE TEAM WILL BE DELETED");
+                Console.Write("ARE YOU SURE YOU WANT TO DELETE THIS TEAM (Y/N) : ");
+                char choice=char.Parse(Console.ReadLine()); 
+
+                if(choice=='y')
+                {
+                    con.Open();
+                    string cmdtxt1="Delete from players where TeamId=@TeamId";
+                    SqlCommand cmd1=new SqlCommand(cmdtxt1,con);
+                    cmd1.Parameters.AddWithValue("@TeamId",TeamId);
+                    cmd1.ExecuteNonQuery();
+                    Consol
+                    
+
+
+                    con.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("ERROR WHILE DELETING TEAM");
+                Console.WriteLine(ex.Message);
+            }
 
         }
         public void ListTeam()

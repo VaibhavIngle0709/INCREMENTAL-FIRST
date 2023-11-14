@@ -102,6 +102,10 @@ namespace dotnetapp
                             playerManager.FindPlayer(idp);
                             break;
                         case 3:
+                            Console.Clear();
+                            Console.Write("ENTER [ PLAYER ID ] TO EDIT : ");
+                            int idedit = int.Parse(Console.ReadLine());
+                            playerManager.EditPlayer(idedit);
                             break;
                         case 4:
                             Console.Clear();
