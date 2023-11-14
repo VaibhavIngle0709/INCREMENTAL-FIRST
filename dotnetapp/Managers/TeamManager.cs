@@ -121,7 +121,7 @@ namespace dotnetapp.Managers
             }
          
                 Console.WriteLine("- - - - - - - - - - - - - ");
-                   Console.WriteLine("");
+                Console.WriteLine("");
 
             con.Close();
             }

@@ -7,6 +7,7 @@ using dotnetapp.Models;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using dotnetapp.Managers;
 
 
 namespace dotnetapp.Managers
@@ -77,15 +78,7 @@ namespace dotnetapp.Managers
 
         }
 
-        Player p=new Player
-                    {
-                      Id=1,
-                      Name="Dhoni",
-                      Age=40,
-                      Category="CAPTAIN",
-                      BiddingPrice=9000000.13m,
-                      TeamId=1
-                    };
+        
 
         public Player getPlayerReady()
         {
@@ -94,9 +87,36 @@ namespace dotnetapp.Managers
             Console.WriteLine("ADDING PLAYER TO DATABASE");
             Console.WriteLine("---------------------------");
             Console.WriteLine();
+
             Console.Write("ENTER  UNIQUE [ PLAYER ID ] : ");
-            p.Id=
-            
+            p.Id=int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            Console.Write("ENTER PLAYER [ NAME ] : ");
+            p.Name=Console.ReadLine();
+            Console.WriteLine();
+
+            Console.WriteLine("ENTER PLAYER [ AGE ] : ");
+            p.Age=int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            Console.Write("ENTER PLAYER [ CATEGORY ] : ");
+            p.Category=Console.ReadLine();
+            Console.WriteLine();
+
+            Console.Write("ENTER PLAYER [ BIDDING PRICE ] : ");
+            p.BiddingPrice=decimal.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            TeamManager tm=new TeamManager();
+            tm.ListTeam();
+            Console.Write("ENTER PLAYER [ TEAM ID ] WITH REFERENCE TO ABOVE TABLE : ");
+            p.TeamId=int.Parse(Console.ReadLine());
+
+            Console.Clear();
+
+            return p;
+
         }
 
         public void DisplayAllPlayers()

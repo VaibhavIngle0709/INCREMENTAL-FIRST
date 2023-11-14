@@ -91,17 +91,9 @@ namespace dotnetapp
                 switch(playerchoice)
                 {
                     case 1:
-                    Player p=new Player
-                    {
-                      Id=1,
-                      Name="Dhoni",
-                      Age=40,
-                      Category="CAPTAIN",
-                      BiddingPrice=9000000.13m,
-                      TeamId=1
-                    };
-                    
+                    Player p= playerManager.getPlayerReady();
                     playerManager.AddPlayerToDatabase(p);
+
                     break;
                     case 2:
                     break;
