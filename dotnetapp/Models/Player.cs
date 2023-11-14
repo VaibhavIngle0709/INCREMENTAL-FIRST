@@ -12,6 +12,8 @@ namespace dotnetapp.Models
         public int Age{get;set;}
         public string Catergory{get;set;}
         public decimal BiddingPrice{get;set;}
+
+        public int TeamId{get;set;};
         public Player(){}
 
         // Write your Player class here...        

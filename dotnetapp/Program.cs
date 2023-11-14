@@ -74,7 +74,9 @@ namespace dotnetapp
             }
             else if(choice==2)
             {
-
+                Console.Clear();
+                Console.WriteLine("PLAYER MANAGEMENT");
+                Console.WriteLine("1.");
             }
             else
             {

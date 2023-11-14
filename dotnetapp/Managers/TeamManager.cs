@@ -53,6 +53,7 @@ namespace dotnetapp.Managers
         }
         public void EditTeam(int TeamId)
         { 
+            Console.Clear();
             SqlConnection con =new SqlConnection(Connectionstring);
             try
             {
@@ -123,6 +124,12 @@ namespace dotnetapp.Managers
                    Console.WriteLine("");
 
             con.Close();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("ERROR WHILE LISTING TEAM");
+                Console.WriteLine(ex.Message);
+            }
 
             
         }
