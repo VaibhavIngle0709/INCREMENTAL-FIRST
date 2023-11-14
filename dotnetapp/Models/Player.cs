@@ -7,14 +7,14 @@ namespace dotnetapp.Models
 {
     public class Player
     {
-        public int Id{get;set;}
-        public string Name{get;set;}
-        public int Age{get;set;}
-        public string Category{get;set;}
-        public decimal BiddingPrice{get;set;}
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string Category { get; set; }
+        public decimal BiddingPrice { get; set; }
 
-        public int TeamId{get;set;}
-        public Player(){}
+        public int TeamId { get; set; }
+        public Player() { }
 
         // Write your Player class here...        
     }

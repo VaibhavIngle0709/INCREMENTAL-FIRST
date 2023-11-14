@@ -17,34 +17,34 @@ namespace dotnetapp.Managers
         // UpdateTeam
         // DeleteTeam
         // ListTeams
-        private readonly string Connectionstring="User ID=sa;password=examlyMssql@123; server=localhost;Database=IPLDB;trusted_connection=false;Persist Security Info=False;Encrypt=False";
+        private readonly string Connectionstring = "User ID=sa;password=examlyMssql@123; server=localhost;Database=IPLDB;trusted_connection=false;Persist Security Info=False;Encrypt=False";
 
         public void CreateTeam()
         {
             try
             {
-                SqlConnection con=new SqlConnection(Connectionstring);
+                SqlConnection con = new SqlConnection(Connectionstring);
                 con.Open();
                 Console.Clear();
                 Console.WriteLine("CREATING NEW TEAM");
                 Console.Write("ENTER [TEAM ID]   : ");
-                int teamid=int.Parse(Console.ReadLine());
+                int teamid = int.Parse(Console.ReadLine());
                 Console.Write("ENTER [TEAM NAME] : ");
-                string teamname=Console.ReadLine();
+                string teamname = Console.ReadLine();
 
-                string cmdtext="Insert into Teams values(@TeamId,@TeamName)";
-                SqlCommand sqlcommand=new SqlCommand(cmdtext,con);
+                string cmdtext = "Insert into Teams values(@TeamId,@TeamName)";
+                SqlCommand sqlcommand = new SqlCommand(cmdtext, con);
 
-                sqlcommand.Parameters.AddWithValue("@TeamId",teamid);
-                sqlcommand.Parameters.AddWithValue("@TeamName",teamname);
+                sqlcommand.Parameters.AddWithValue("@TeamId", teamid);
+                sqlcommand.Parameters.AddWithValue("@TeamName", teamname);
 
                 sqlcommand.ExecuteNonQuery();
 
                 con.Close();
-                
+
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("ERROR WHILE CREATING TEAM");
                 Console.WriteLine(ex.Message);
@@ -52,18 +52,18 @@ namespace dotnetapp.Managers
 
         }
         public void EditTeam(int TeamId)
-        { 
+        {
             Console.Clear();
-            SqlConnection con =new SqlConnection(Connectionstring);
+            SqlConnection con = new SqlConnection(Connectionstring);
             try
             {
                 con.Open();
                 //retrive team details
-                string cmdtxt1="Select TeamName from Teams where TeamId=@TeamId";
-                SqlCommand cmd1=new SqlCommand(cmdtxt1,con);
-                cmd1.Parameters.AddWithValue("@TeamId",TeamId);
+                string cmdtxt1 = "Select TeamName from Teams where TeamId=@TeamId";
+                SqlCommand cmd1 = new SqlCommand(cmdtxt1, con);
+                cmd1.Parameters.AddWithValue("@TeamId", TeamId);
 
-                Object resultName=cmd1.ExecuteScalar();
+                Object resultName = cmd1.ExecuteScalar();
                 Console.Clear();
                 Console.WriteLine("--------------------------------");
                 Console.WriteLine("TEAM YOU WANT TO EDIT");
@@ -72,12 +72,12 @@ namespace dotnetapp.Managers
                 Console.WriteLine("");
 
                 Console.Write("ENTER NEW [ TEAM NAME ] :");
-                string tname=Console.ReadLine();
-                
-                string cmdtxt2="UPDATE Teams SET TeamName=@TeamName WHERE TeamId=@TeamId";
-                SqlCommand cmd2=new SqlCommand(cmdtxt2,con);
-                cmd2.Parameters.AddWithValue("@TeamId",TeamId);
-                cmd2.Parameters.AddWithValue("@TeamName",tname);
+                string tname = Console.ReadLine();
+
+                string cmdtxt2 = "UPDATE Teams SET TeamName=@TeamName WHERE TeamId=@TeamId";
+                SqlCommand cmd2 = new SqlCommand(cmdtxt2, con);
+                cmd2.Parameters.AddWithValue("@TeamId", TeamId);
+                cmd2.Parameters.AddWithValue("@TeamName", tname);
                 cmd2.ExecuteNonQuery();
                 Console.WriteLine("UPDATED SUCCESSFULLY.");
                 Console.Write("PRESS ENTER KEY TO CONTINUE : ");
@@ -87,51 +87,51 @@ namespace dotnetapp.Managers
                 con.Close();
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("ERROR WHILE EDITING TEAM");
                 Console.WriteLine(ex.Message);
             }
-            
+
 
         }
         public void DeleteTeam(int TeamId)
         {
-            
+
         }
         public void ListTeam()
         {
             Console.Clear();
-            SqlConnection con=new SqlConnection(Connectionstring);
+            SqlConnection con = new SqlConnection(Connectionstring);
             try
             {
-            con.Open();
+                con.Open();
 
-            string cmdtext="Select * from Teams";
+                string cmdtext = "Select * from Teams";
 
-            SqlCommand cmd=new SqlCommand(cmdtext,con);
-            
-            SqlDataReader dataReader=cmd.ExecuteReader();
+                SqlCommand cmd = new SqlCommand(cmdtext, con);
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
                 Console.WriteLine("");
                 Console.WriteLine("- - - - - - - - - - - - - ");
                 Console.WriteLine("TEAM ID         TEAM NAME");
-            while(dataReader.Read())
-            {
-                Console.WriteLine($"{dataReader["TeamId"]}               {dataReader["TeamName"]}");
-            }
-         
+                while (dataReader.Read())
+                {
+                    Console.WriteLine($"{dataReader["TeamId"]}               {dataReader["TeamName"]}");
+                }
+
                 Console.WriteLine("- - - - - - - - - - - - - ");
                 Console.WriteLine("");
 
-            con.Close();
+                con.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("ERROR WHILE LISTING TEAM");
                 Console.WriteLine(ex.Message);
             }
 
-            
+
         }
     }
 }
