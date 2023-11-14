@@ -108,6 +108,7 @@ namespace dotnetapp
                     case 5:
                     break;
                     case 6:
+                    playerManager.DisplayAllPlayers();
                     break;
                     default:
                     break;

@@ -79,6 +79,33 @@ namespace dotnetapp.Managers
         public void DisplayAllPlayers()
         {
             SqlConnection con =new SqlConnection(Connectionstring);
+            try
+            {
+            con.Open();
+            string cmdtxt="Select * from Players";
+
+            SqlCommand cmd=new SqlCommand(cmdtxt,con);
+
+            SqlDataReader reader=cmd.ExecuteReader();
+
+            Console.Clear();
+            Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - -");
+            Console.WriteLine("ID    NAME    AGE    CATEGORY    BIDDING PRICE    TEAMID");
+            Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - -");
+
+
+            while(reader.Read())
+            {
+                Console.WriteLine($"{reader["Id"]}        {reader["Name"]}    {reader["Age"]}    {reader["Category"]}        {reader["BiddingPrice"]}    {reader["TeamId"]}");
+            }
+            Console.ReadLine();
+            con.Close();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("ERROR WHILE DISPLAYING ALL PLAYER");
+                Console.WriteLine(ex.Message);
+            }
         }
 
 
