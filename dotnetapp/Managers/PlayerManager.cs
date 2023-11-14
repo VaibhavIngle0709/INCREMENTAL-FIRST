@@ -63,10 +63,37 @@ namespace dotnetapp.Managers
         }
         public void EditPlayer(int id)
         {
+            FindPlayer(id);
 
         }
         public void DeletePlayer(int id)
         {
+            SqlConnection con =new SqlConnection(Connectionstring);
+            try
+            {
+                Console.Clear();
+
+                FindPlayer();
+                Console.WriteLine("ARE YOU SURE YOU WANT TO DELETE THIS RECORD (Y/N): ");
+                
+                con.Open();
+    
+                string cmdtxt="Delete from Players where Id=@Id";
+
+                SqlCommand cmd=new SqlCommand(cmdtxt,con);
+
+                cmd.Parameters.AddWithValue("@Id",id);
+                
+                cmd.ExecuteNonQuery();
+
+                Console.WriteLine("DELETED SUCCESSFULLY");
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("ERROR WHILE DELETING ALL PLAYER");
+                Console.WriteLine(ex.Message);
+            }
 
         }
          public void ListPlayers()
