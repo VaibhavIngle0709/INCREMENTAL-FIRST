@@ -96,6 +96,10 @@ namespace dotnetapp
 
                     break;
                     case 2:
+                    Console.Clear();
+                    Console.Write("ENTER [ PLAYER ID ] TO FIND : ");
+                    int idp=int.Parse(Console.ReadLine());
+                    playerManager.FindPlayer(idp);
                     break;
                     case 3:
                     break;

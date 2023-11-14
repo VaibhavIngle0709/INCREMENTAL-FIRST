@@ -75,7 +75,30 @@ namespace dotnetapp.Managers
         }
         public void FindPlayer(int id)
         {
+            SqlConnection con =new SqlConnection(Connectionstring);
+            string cmdtxt="Select * from Players where Id=@Id";
+            try
+            {
+                con.Open();
+                SqlCommand cmd=new SqlCommand(cmdtxt,con);
+                cmd.Parameters.AddWithValue("@Id",id);
+                SqlDataReader reader=cmd.ExecuteReader();
 
+                Console.WriteLine("DETAILS OF PLAYER");
+                Console.WriteLine("---------------------");
+                Console.WriteLine("ID    NAME                            AGE    CATEGORY    BIDDING PRICE    TEAMID");
+                Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+
+                if(reader.Read())
+                {
+                Console.WriteLine($"{reader["Id"]}     {reader["Name"]}                           {reader["Age"]}     {reader["Category"]}     {reader["BiddingPrice"]}        {reader["TeamId"]}");
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("ERROR WHILE DISPLAYING ALL PLAYER");
+                Console.WriteLine(ex.Message);
+            }
         }
 
         
