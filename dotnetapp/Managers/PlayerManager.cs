@@ -135,13 +135,13 @@ namespace dotnetapp.Managers
             Console.Clear();
             Console.WriteLine("ALL PLAYERS");
             Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
-            Console.WriteLine("ID    NAME    AGE    CATEGORY    BIDDING PRICE    TEAMID");
+            Console.WriteLine("ID    NAME                            AGE    CATEGORY    BIDDING PRICE    TEAMID");
             Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
 
 
             while(reader.Read())
             {
-                Console.WriteLine($"{reader["Id"]}     {reader["Name"]}   {reader["Age"]}     {reader["Category"]}     {reader["BiddingPrice"]}        {reader["TeamId"]}");
+                Console.WriteLine($"{reader["Id"]}     {reader["Name"]}                           {reader["Age"]}     {reader["Category"]}     {reader["BiddingPrice"]}        {reader["TeamId"]}");
             }
             Console.WriteLine("PRESS ENTER KEY TO CONTINUE.");
             Console.ReadLine();
