@@ -64,16 +64,15 @@ namespace dotnetapp.Managers
         public void EditPlayer(int id)
         {
             Console.Clear();
-            FindPlayer(id);
+            
             SqlConnection con = new SqlConnection(Connectionstring);
             try
             {
                 con.Open();
-
                 Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
                 Console.WriteLine("EDITING PLAYER INFORMATION");
                 Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
-                
+                FindPlayer(id);
                 Console.WriteLine("");
                 Console.WriteLine("1.EDIT [NAME]");
                 Console.WriteLine("2.EDIT [AGE]");
@@ -81,6 +80,8 @@ namespace dotnetapp.Managers
                 Console.WriteLine("4.EDIT [BIDDING PRICE]");
                 Console.WriteLine("5.EDIT [TEAM ID]");
 
+                Console.WriteLine("");
+                
                 Console.Write("SELECT YOUR CHOICE : ");
                 int choice = int.Parse(Console.ReadLine());
 
@@ -333,9 +334,7 @@ namespace dotnetapp.Managers
                 {
                     Console.WriteLine($"{reader["Id"]}     {reader["Name"]}                           {reader["Age"]}     {reader["Category"]}     {reader["BiddingPrice"]}        {reader["TeamId"]}");
                 }
-                Console.WriteLine("PRESS ENTER KEY TO CONTINUE.");
-                Console.ReadLine();
-                Console.Clear();
+               
                 con.Close();
             }
             catch (Exception ex)

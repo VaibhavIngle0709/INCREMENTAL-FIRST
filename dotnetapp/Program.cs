@@ -104,7 +104,8 @@ namespace dotnetapp
                             break;
                         case 3:
                             Console.Clear();
-                            Console.Write("ENTER [ PLAYER ID ] TO EDIT : ");
+                            playerManager.DisplayAllPlayers();
+                            Console.Write("ENTER [ PLAYER ID ] TO EDIT WITH ABOVE REFERENCE : ");
                             int idedit = int.Parse(Console.ReadLine());
                             playerManager.EditPlayer(idedit);
                             break;
@@ -118,12 +119,15 @@ namespace dotnetapp
                             Console.Clear();
                             teamManager.ListTeam();
                             Console.Write("ENTER [TEAM ID] TO GET PLAYERS WITH REFERENCE TO ABOVE DATA : ");
-                            int teamid=int.Parse(Console.ReadLine());
+                            int teamid = int.Parse(Console.ReadLine());
                             playerManager.ListPlayersOfParticularTeam(teamid);
 
                             break;
                         case 6:
                             playerManager.DisplayAllPlayers();
+                            Console.WriteLine("PRESS ENTER KEY TO CONTINUE.");
+                            Console.ReadLine();
+                            Console.Clear();
                             break;
                         default:
                             Console.WriteLine("PLEASE SELECT A VALID CHOICE AND TRY AGAIN.");
