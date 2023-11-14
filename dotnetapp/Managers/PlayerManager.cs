@@ -109,11 +109,13 @@ namespace dotnetapp.Managers
             SqlConnection con =new SqlConnection(Connectionstring);
             try
             {
+                string cmdtxt="Select * from players where TeamId=@TeamId";
+                
 
             }
             catch(Exception ex)
             {
-                Console.WriteLine("ERROR WHILE DISPLAYING PARTICULAT TEAM PLAYER.");
+                Console.WriteLine("ERROR WHILE DISPLAYING PARTICULAR TEAM PLAYER.");
                 Console.WriteLine(ex.Message);
             }
         }
