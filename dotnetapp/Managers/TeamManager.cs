@@ -53,7 +53,27 @@ namespace dotnetapp.Managers
         }
         public void EditTeam(int TeamId)
         { 
-            SqlConnection con =new SqlConnection();
+            SqlConnection con =new SqlConnection(Connectionstring);
+            try
+            {
+                con.Open();
+                string cmdtxt="Select TeamName form Teams where TeamId=@TeamId";
+                SqlCommand cmd=new SqlCommand(cmdtxt,con);
+                cmd.Parameters.AddWithValue("@TeamId",TeamId);
+
+                string resultName=cmd.ExecuteScalar();
+
+                Console.WriteLine($"TEAM YOU WANT TO EDIT [ {resultName} ]");
+                Console.Write("ENTER NEW [ TEAM NAME ] :");
+                //string tname=Console.ReadLine();
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("ERROR WHILE EDITING TEAM");
+                Console.WriteLine(ex.Message);
+            }
+            
 
         }
         public void DeleteTeam(int TeamId)
