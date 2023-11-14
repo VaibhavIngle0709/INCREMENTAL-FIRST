@@ -24,11 +24,11 @@ namespace dotnetapp.Managers
 
         public void AddPlayerToDatabase(Player p)
         {
-                
+
         }
         public void AddPlayer()
         {
-
+            
         }
         public void EditPlayer(int id)
         {

@@ -13,7 +13,7 @@ namespace dotnetapp.Models
         public string Catergory{get;set;}
         public decimal BiddingPrice{get;set;}
 
-        public int TeamId{get;set;};
+        public int TeamId{get;set;}
         public Player(){}
 
         // Write your Player class here...        

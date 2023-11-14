@@ -76,7 +76,13 @@ namespace dotnetapp
             {
                 Console.Clear();
                 Console.WriteLine("PLAYER MANAGEMENT");
-                Console.WriteLine("1.");
+                Console.WriteLine("1.ADD PLAYER.");
+                Console.WriteLine("2.EDIT PLAYER.");
+                Console.WriteLine("3.DELETE PLAYER.");
+                Console.WriteLine("4.LIST PLAYER OF PARTICULAR TEAM.");
+                Console.WriteLine("5.FIND PLAYER.");
+                Console.WriteLine("6.DISPLAY ALL PLAYER.");
+                Console.ReadLine();
             }
             else
             {
