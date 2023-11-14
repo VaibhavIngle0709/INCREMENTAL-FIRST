@@ -10,7 +10,7 @@ namespace dotnetapp.Models
         public int Id{get;set;}
         public string Name{get;set;}
         public int Age{get;set;}
-        public string Catergory{get;set;}
+        public string Category{get;set;}
         public decimal BiddingPrice{get;set;}
 
         public int TeamId{get;set;}
