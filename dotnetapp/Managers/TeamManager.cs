@@ -52,7 +52,8 @@ namespace dotnetapp.Managers
 
         }
         public void EditTeam(int TeamId)
-        {
+        { 
+            SqlConnection con =new SqlConnection();
 
         }
         public void DeleteTeam(int TeamId)
