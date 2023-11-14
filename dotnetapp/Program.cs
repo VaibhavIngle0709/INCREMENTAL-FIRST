@@ -115,6 +115,11 @@ namespace dotnetapp
                             playerManager.DeletePlayer(idd);
                             break;
                         case 5:
+                            Console.Clear();
+                            Console.Write("ENTER [TEAM ID] TO GET PLAYERS : ");
+                            int teamid=int.Parse(Console.ReadLine());
+                            playerManager.ListPlayers(teamid);
+
                             break;
                         case 6:
                             playerManager.DisplayAllPlayers();

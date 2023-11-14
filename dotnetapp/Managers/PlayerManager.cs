@@ -103,6 +103,20 @@ namespace dotnetapp.Managers
             }
 
         }
+        
+        public void ListPlayersOfParticularTeam(int TeamId)
+        {
+            SqlConnection con =new SqlConnection(Connectionstring);
+            try
+            {
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("ERROR WHILE DISPLAYING PARTICULAT TEAM PLAYER.");
+                Console.WriteLine(ex.Message);
+            }
+        }
         public void ListPlayers()
         {
             DisplayAllPlayers();
