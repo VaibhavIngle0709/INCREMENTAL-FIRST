@@ -73,7 +73,15 @@ namespace dotnetapp.Managers
                 Console.Write("ENTER NEW [ TEAM NAME ] :");
                 string tname=Console.ReadLine();
                 
-                string cmdtxt2="alter table "
+                string cmdtxt2="UPDATE Teams SET TeamName=@TeamName WHERE TeamId=@TeamId";
+                SqlCommand cmd2=new SqlCommand(cmdtxt2,con);
+                cmd2.Parameters.AddWithValue("@TeamId",TeamId);
+                cmd2.Parameters.AddWithValue("@TeamName",tname);
+                cmd2.ExecuteNonQuery();
+                Console.WriteLine("UPDATED SUCCESSFULLY.");
+                Console.Write("PRESS ENTER KEY TO CONTINUE : ");
+                Console.ReadLine();
+                Console.Clear();
 
                 con.Close();
 
@@ -92,7 +100,10 @@ namespace dotnetapp.Managers
         }
         public void ListTeam()
         {
+            Console.Clear();
             SqlConnection con=new SqlConnection(Connectionstring);
+            try
+            {
             con.Open();
 
             string cmdtext="Select * from Teams";
