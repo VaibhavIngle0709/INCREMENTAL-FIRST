@@ -28,7 +28,17 @@ namespace dotnetapp.Managers
             SqlConnection con=new SqlConnection(Connectionstring);
             try
             {
+             con.Open();
+             string cmdtxt="Insert into Players values (@Id,@Name,@Age,@Category,@BiddingPrice,@TeamId)";
+             
+             SqlCommand cmd=new SqlCommand(cmdtxt,con);
+             
+             con.Parameters.Add
 
+
+
+
+             con.Close();
             }
             catch(Exception ex)
             {
