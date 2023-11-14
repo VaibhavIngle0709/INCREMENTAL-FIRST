@@ -76,8 +76,32 @@ namespace dotnetapp.Managers
         {
 
         }
+
+        Player p=new Player
+                    {
+                      Id=1,
+                      Name="Dhoni",
+                      Age=40,
+                      Category="CAPTAIN",
+                      BiddingPrice=9000000.13m,
+                      TeamId=1
+                    };
+
+        public Player getPlayerReady()
+        {
+            Console.Clear();
+            Player p=new Player();
+            Console.WriteLine("ADDING PLAYER TO DATABASE");
+            Console.WriteLine("---------------------------");
+            Console.WriteLine();
+            Console.Write("ENTER  UNIQUE [ PLAYER ID ] : ");
+            p.Id=
+            
+        }
+
         public void DisplayAllPlayers()
         {
+            Console.Clear();
             SqlConnection con =new SqlConnection(Connectionstring);
             try
             {
@@ -89,16 +113,19 @@ namespace dotnetapp.Managers
             SqlDataReader reader=cmd.ExecuteReader();
 
             Console.Clear();
-            Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - -");
+            Console.WriteLine("ALL PLAYERS");
+            Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
             Console.WriteLine("ID    NAME    AGE    CATEGORY    BIDDING PRICE    TEAMID");
-            Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - -");
+            Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
 
 
             while(reader.Read())
             {
-                Console.WriteLine($"{reader["Id"]}        {reader["Name"]}    {reader["Age"]}    {reader["Category"]}        {reader["BiddingPrice"]}    {reader["TeamId"]}");
+                Console.WriteLine($"{reader["Id"]}     {reader["Name"]}   {reader["Age"]}     {reader["Category"]}     {reader["BiddingPrice"]}        {reader["TeamId"]}");
             }
+            Console.WriteLine("PRESS ENTER KEY TO CONTINUE.");
             Console.ReadLine();
+            Console.Clear();
             con.Close();
             }
             catch(Exception ex)

@@ -75,6 +75,9 @@ namespace dotnetapp
             else if(choice==2)
             {
                 Console.Clear();
+                char pchoice='y';
+                while(pchoice=='y')
+                {
                 Console.WriteLine("PLAYER MANAGEMENT");
                 Console.WriteLine("1.ADD PLAYER.");
                 Console.WriteLine("2.FIND PLAYER.");
@@ -97,6 +100,7 @@ namespace dotnetapp
                       BiddingPrice=9000000.13m,
                       TeamId=1
                     };
+                    
                     playerManager.AddPlayerToDatabase(p);
                     break;
                     case 2:
@@ -112,6 +116,11 @@ namespace dotnetapp
                     break;
                     default:
                     break;
+                }
+
+                Console.Write("PRESS (Y/N) : ");
+                //take input for Y/N here
+                 pchoice=char.Parse(Console.ReadLine());
                 }
             }
             else
