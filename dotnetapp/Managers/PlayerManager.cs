@@ -73,6 +73,7 @@ namespace dotnetapp.Managers
                 Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
                 Console.WriteLine("EDITING PLAYER INFORMATION");
                 Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+                
                 Console.WriteLine("");
                 Console.WriteLine("1.EDIT [NAME]");
                 Console.WriteLine("2.EDIT [AGE]");
@@ -86,15 +87,69 @@ namespace dotnetapp.Managers
                 switch (choice)
                 {
                     case 1:
-                        
+                        Console.Write("ENTER NEW UPDATED [ NAME ] : ");
+                        string name=Console.ReadLine();
+                        string cmdtxtname="Update Players SET Name=@Name where Id=@Id";
+                        SqlCommand cmdname=new SqlCommand(cmdtxtname,con);
+                        cmdname.Parameters.AddWithValue("@Name",name);
+                        cmdname.Parameters.AddWithValue("@Id",id);
+                        cmdname.ExecuteNonQuery();
+
+                        Console.WriteLine("DATA UPDATED SUCCESSFULLY.");
+                        Console.WriteLine("PRESS ENTER TO CONTINUE.");
+                        Console.ReadLine();
                         break;
                     case 2:
+                        Console.Write("ENTER NEW UPDATED [ AGE ] : ");
+                        int age=int.Parse(Console.ReadLine());
+                        string cmdtxtAge="Update Players SET Age=@Age where Id=@Id";
+                        SqlCommand cmdage=new SqlCommand(cmdtxtAge,con);
+                        cmdage.Parameters.AddWithValue("@Age",age);
+                        cmdage.Parameters.AddWithValue("@Id",id);
+                        cmdage.ExecuteNonQuery();
+
+                        Console.WriteLine("DATA UPDATED SUCCESSFULLY.");
+                        Console.WriteLine("PRESS ENTER TO CONTINUE.");
+                        Console.ReadLine();
                         break;
                     case 3:
+                        Console.Write("ENTER NEW UPDATED [ CATEGORY ] : ");
+                        string category=Console.ReadLine();
+                        string cmdtxtCategory="Update Players SET Category=@Category where Id=@Id";
+                        SqlCommand cmdcategory=new SqlCommand(cmdtxtCategory,con);
+                        cmdcategory.Parameters.AddWithValue("@Category",category);
+                        cmdcategory.Parameters.AddWithValue("@Id",id);
+                        cmdcategory.ExecuteNonQuery();
+
+                        Console.WriteLine("DATA UPDATED SUCCESSFULLY.");
+                        Console.WriteLine("PRESS ENTER TO CONTINUE.");
+                        Console.ReadLine();
                         break;
                     case 4:
+                        Console.Write("ENTER NEW UPDATED [ BIDDING PRICE ] : ");
+                        decimal biddingprice=decimal.Parse(Console.ReadLine());
+                        string cmdtxtbid="Update Players SET BiddingPrice=@BiddingPrice where Id=@Id";
+                        SqlCommand cmdbid=new SqlCommand(cmdtxtbid,con);
+                        cmdbid.Parameters.AddWithValue("@BiddingPrice",biddingprice);
+                        cmdbid.Parameters.AddWithValue("@Id",id);
+                        cmdbid.ExecuteNonQuery();
+
+                        Console.WriteLine("DATA UPDATED SUCCESSFULLY.");
+                        Console.WriteLine("PRESS ENTER TO CONTINUE.");
+                        Console.ReadLine();
                         break;
                     case 5:
+                        Console.Write("ENTER NEW UPDATED [ TEAM ID ] : ");
+                        int tid=int.Parse(Console.ReadLine());
+                        string cmdtxtteamid="Update Players SET TeamId=@TeamId where Id=@Id";
+                        SqlCommand cmdteamid=new SqlCommand(cmdtxtteamid,con);
+                        cmdteamid.Parameters.AddWithValue("@TeamId",tid);
+                        cmdteamid.Parameters.AddWithValue("@Id",id);
+                        cmdteamid.ExecuteNonQuery();
+
+                        Console.WriteLine("DATA UPDATED SUCCESSFULLY.");
+                        Console.WriteLine("PRESS ENTER TO CONTINUE.");
+                        Console.ReadLine();
                         break;
                 }
 
