@@ -33,10 +33,19 @@ namespace dotnetapp.Managers
              
              SqlCommand cmd=new SqlCommand(cmdtxt,con);
              
-             con.Parameters.Add
+             cmd.Parameters.AddWithValue("@Id",p.Id);
+             cmd.Parameters.AddWithValue("@Name",p.Name);
+             cmd.Parameters.AddWithValue("@Age",p.Age);
+             cmd.Parameters.AddWithValue("@Category",p.Category);
+             cmd.Parameters.AddWithValue("@BiddingPrice",p.BiddingPrice);
+             cmd.Parameters.AddWithValue("@TeamId",p.TeamId);
+             cmd.ExecuteNonQuery();
+             Console.WriteLine("PLAYER ADDED SUCCESSFULLY");
+             Console.WriteLine("---------------------------------");             
+             Console.WriteLine("PRESS ENTER KEY TO CONTINUE");
+             Console.ReadLine();
 
-
-
+             Console.Clear();
 
              con.Close();
             }
@@ -61,7 +70,7 @@ namespace dotnetapp.Managers
         }
          public void ListPlayers()
         {
-
+            
         }
         public void FindPlayer(int id)
         {
@@ -69,7 +78,7 @@ namespace dotnetapp.Managers
         }
         public void DisplayAllPlayers()
         {
-
+            SqlConnection con =new SqlConnection(Connectionstring);
         }
 
 
