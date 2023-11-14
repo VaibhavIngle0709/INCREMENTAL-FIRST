@@ -63,7 +63,52 @@ namespace dotnetapp.Managers
         }
         public void EditPlayer(int id)
         {
+            Console.Clear();
             FindPlayer(id);
+            SqlConnection con = new SqlConnection(Connectionstring);
+            try
+            {
+                con.Open();
+
+                Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+                Console.WriteLine("EDITING PLAYER INFORMATION");
+                Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+                Console.WriteLine("");
+                Console.WriteLine("1.EDIT [NAME]");
+                Console.WriteLine("2.EDIT [AGE]");
+                Console.WriteLine("3.EDIT [CATEGORY]");
+                Console.WriteLine("4.EDIT [BIDDING PRICE]");
+                Console.WriteLine("5.EDIT [TEAM ID]");
+
+                Console.Write("SELECT YOUR CHOICE : ");
+                int choice = int.Parse(Console.ReadLine());
+
+                switch (choice)
+                {
+                    case 1:
+                        
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                }
+
+
+
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR WHILE EDITING  PLAYER");
+                Console.WriteLine(ex.Message);
+
+            }
 
         }
         public void DeletePlayer(int id)
@@ -98,22 +143,39 @@ namespace dotnetapp.Managers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ERROR WHILE DELETING ALL PLAYER");
+                Console.WriteLine("ERROR WHILE DELETING  PLAYER");
                 Console.WriteLine(ex.Message);
             }
 
         }
-        
+
         public void ListPlayersOfParticularTeam(int TeamId)
         {
-            SqlConnection con =new SqlConnection(Connectionstring);
+            SqlConnection con = new SqlConnection(Connectionstring);
             try
             {
-                string cmdtxt="Select * from players where TeamId=@TeamId";
-                
+                con.Open();
+                string cmdtxt = "Select * from players where TeamId=@TeamId";
+                SqlCommand cmd = new SqlCommand(cmdtxt, con);
+                cmd.Parameters.AddWithValue("@TeamId", TeamId);
+                SqlDataReader reader = cmd.ExecuteReader();
+                Console.WriteLine("PLAYERS OF PARTICULAT TEAM");
+                Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+                Console.WriteLine("ID    NAME                            AGE    CATEGORY    BIDDING PRICE    TEAMID");
+                Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+
+
+                while (reader.Read())
+                {
+                    Console.WriteLine($"{reader["Id"]}     {reader["Name"]}                           {reader["Age"]}     {reader["Category"]}     {reader["BiddingPrice"]}        {reader["TeamId"]}");
+                }
+                Console.WriteLine("PRESS ENTER KEY TO CONTINUE.");
+                Console.ReadLine();
+                Console.Clear();
+                con.Close();
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("ERROR WHILE DISPLAYING PARTICULAR TEAM PLAYER.");
                 Console.WriteLine(ex.Message);

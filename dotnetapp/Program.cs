@@ -116,15 +116,18 @@ namespace dotnetapp
                             break;
                         case 5:
                             Console.Clear();
-                            Console.Write("ENTER [TEAM ID] TO GET PLAYERS : ");
+                            teamManager.ListTeam();
+                            Console.Write("ENTER [TEAM ID] TO GET PLAYERS WITH REFERENCE TO ABOVE DATA : ");
                             int teamid=int.Parse(Console.ReadLine());
-                            playerManager.ListPlayers(teamid);
+                            playerManager.ListPlayersOfParticularTeam(teamid);
 
                             break;
                         case 6:
                             playerManager.DisplayAllPlayers();
                             break;
                         default:
+                            Console.WriteLine("PLEASE SELECT A VALID CHOICE AND TRY AGAIN.");
+                            break;
                             break;
                     }
 
