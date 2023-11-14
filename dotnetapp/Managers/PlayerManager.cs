@@ -153,7 +153,7 @@ namespace dotnetapp.Managers
             p.Name = Console.ReadLine();
             Console.WriteLine();
 
-            Console.WriteLine("ENTER PLAYER [ AGE ] : ");
+            Console.Write("ENTER PLAYER [ AGE ] : ");
             p.Age = int.Parse(Console.ReadLine());
             Console.WriteLine();
 

@@ -48,7 +48,8 @@ namespace dotnetapp
 
                         case 3:
                             //need to take input for teamID
-                            Console.Write("PLEASE ENTER [TEAM ID] OF THE TEAM TO DELETE : ");
+                            teamManager.ListTeam();
+                            Console.Write("PLEASE ENTER [TEAM ID] OF THE TEAM TO DELETE FROM ABOVE REFERENCE : ");
                             int idD = int.Parse(Console.ReadLine());
                             teamManager.DeleteTeam(idD);
                             break;

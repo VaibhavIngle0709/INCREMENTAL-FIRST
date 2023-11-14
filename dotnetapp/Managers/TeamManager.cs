@@ -108,15 +108,28 @@ namespace dotnetapp.Managers
                 if(choice=='y')
                 {
                     con.Open();
-                    string cmdtxt1="Delete from players where TeamId=@TeamId";
+                    string cmdtxt1="Delete from Players where TeamId=@TeamId";
                     SqlCommand cmd1=new SqlCommand(cmdtxt1,con);
                     cmd1.Parameters.AddWithValue("@TeamId",TeamId);
                     cmd1.ExecuteNonQuery();
-                    Consol
                     
+                    string cmdtxt2="Delete from Teams where TeamId=@TeamId";
+                    SqlCommand cmd2=new SqlCommand(cmdtxt2,con);
+                    cmd2.Parameters.AddWithValue("@TeamId",TeamId);
+                    cmd2.ExecuteNonQuery();
 
-
+                    Console.WriteLine("TEAM DELETED SUCCESSFULLY");
+                    Console.WriteLine("PRESS ENTER KEY TO CONTINUE : ");
+                    Console.ReadLine();
+                    Console.Clear();
                     con.Close();
+                }
+
+                else
+                {
+                    Console.WriteLine("OPERATION ABORTED!! PRESS ENTER KEY TO CONTINUE");
+                    Console.ReadLine();
+
                 }
             }
             catch(Exception ex)
