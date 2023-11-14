@@ -21,9 +21,20 @@ namespace dotnetapp.Managers
         // ListPlayers
         // FindPlayer
         // DisplayAllPlayers
+        private readonly string Connectionstring="User ID=sa;password=examlyMssql@123; server=localhost;Database=IPLDB;trusted_connection=false;Persist Security Info=False;Encrypt=False";
 
         public void AddPlayerToDatabase(Player p)
         {
+            SqlConnection con=new SqlConnection(Connectionstring);
+            try
+            {
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("ERROR WHILE ADDING PLAYER");
+                Console.WriteLine(ex.Message);
+            }
 
         }
         public void AddPlayer()
