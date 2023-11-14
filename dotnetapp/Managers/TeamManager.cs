@@ -57,15 +57,25 @@ namespace dotnetapp.Managers
             try
             {
                 con.Open();
-                string cmdtxt="Select TeamName form Teams where TeamId=@TeamId";
-                SqlCommand cmd=new SqlCommand(cmdtxt,con);
-                cmd.Parameters.AddWithValue("@TeamId",TeamId);
+                //retrive team details
+                string cmdtxt1="Select TeamName from Teams where TeamId=@TeamId";
+                SqlCommand cmd1=new SqlCommand(cmdtxt1,con);
+                cmd1.Parameters.AddWithValue("@TeamId",TeamId);
 
-                string resultName=cmd.ExecuteScalar();
+                Object resultName=cmd1.ExecuteScalar();
+                Console.Clear();
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine("TEAM YOU WANT TO EDIT");
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine($"TEAM ID [ {TeamId} ] TEAM NAME [ {resultName.ToString()} ] :");
+                Console.WriteLine("");
 
-                Console.WriteLine($"TEAM YOU WANT TO EDIT [ {resultName} ]");
                 Console.Write("ENTER NEW [ TEAM NAME ] :");
-                //string tname=Console.ReadLine();
+                string tname=Console.ReadLine();
+                
+                string cmdtxt2="alter table "
+
+                con.Close();
 
             }
             catch(Exception ex)
